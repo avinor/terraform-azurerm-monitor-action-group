@@ -20,8 +20,18 @@ variable "enabled" {
   default     = true
 }
 
+variable "emails" {
+  description = "List of email receivers"
+  type = list(object({
+    name                    = string
+    email_address           = string
+    use_common_alert_schema = bool
+  }))
+  default = []
+}
+
 variable "webhooks" {
-  description = "List of webhooks receivers"
+  description = "List of webhook receivers"
   type = list(object({
     name                    = string
     service_uri             = string

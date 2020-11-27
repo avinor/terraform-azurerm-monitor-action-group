@@ -7,6 +7,20 @@ module "simple" {
 
   short_name = "Short Name"
 
+
+  emails = [
+    {
+      name                    = "sendtodevops"
+      email_address           = "devops@contoso.com"
+      use_common_alert_schema = true
+    },
+    {
+      name                    = "sendtodevops2"
+      email_address           = "devops2@contoso.com"
+      use_common_alert_schema = true
+    }
+  ]
+
   webhooks = [
     {
       name                    = "callmyapiaswell"

@@ -24,11 +24,21 @@ resource "azurerm_monitor_action_group" "main" {
 
   tags = var.tags
 
+  dynamic "email_receiver" {
+    for_each = var.emails
+    content {
+      name                    = email_receiver.value.name
+      email_address           = email_receiver.value.email_address
+      use_common_alert_schema = email_receiver.value.use_common_alert_schema
+    }
+  }
+
   dynamic "webhook_receiver" {
     for_each = var.webhooks
     content {
-      name        = webhook_receiver.value.name
-      service_uri = webhook_receiver.value.service_uri
+      name                    = webhook_receiver.value.name
+      service_uri             = webhook_receiver.value.service_uri
+      use_common_alert_schema = webhook_receiver.value.use_common_alert_schema
     }
   }
 }
