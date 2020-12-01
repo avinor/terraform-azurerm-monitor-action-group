@@ -1,7 +1,9 @@
 # Monitor Action Group
 
 
-This module deploys a //TODO:
+This module deploys an azure monitor action group.
+
+Support for webhook and email revivers.
 
 ## Usage
 
@@ -18,5 +20,12 @@ inputs {
   location            = "westeurope"
   short_name          = "Short Name"
 
+  webhooks = [
+    {  
+      name                    = "myalert"
+      service_uri             = "https://examples.com"
+      use_common_alert_schema = true
+    },
+  ]
 }
 ```

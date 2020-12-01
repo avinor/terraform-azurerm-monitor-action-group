@@ -7,7 +7,6 @@ module "simple" {
 
   short_name = "Short Name"
 
-
   emails = [
     {
       name                    = "sendtodevops"

@@ -1,3 +1,3 @@
-# Example : Simple montor action group
+# Example : Simple monitor action group
 
 Deploy a simple monitor action group.
