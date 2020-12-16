@@ -54,7 +54,7 @@ resource "azurerm_monitor_activity_log_alert" "main" {
   description         = each.value.description
 
   criteria {
-    category = each.value.criteria
+    category = each.value.criteria_category
   }
 
   action {

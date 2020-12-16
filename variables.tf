@@ -50,9 +50,9 @@ variable "webhooks" {
 variable "activity_log_alerts" {
   description = "Map of acivity log alerts"
   type = map(object({
-    scopes      = list(string)
-    description = string
-    criteria    = string
+    scopes            = list(string)
+    description       = string
+    criteria_category = string
   }))
   default = null
 }
