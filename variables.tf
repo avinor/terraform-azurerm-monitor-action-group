@@ -20,6 +20,13 @@ variable "enabled" {
   default     = true
 }
 
+variable "tags" {
+  description = "Tags to apply to all resources created."
+  type        = map(string)
+  default     = {}
+}
+
+
 variable "emails" {
   description = "List of email receivers"
   type = list(object({
@@ -40,8 +47,12 @@ variable "webhooks" {
   default = []
 }
 
-variable "tags" {
-  description = "Tags to apply to all resources created."
-  type        = map(string)
-  default     = {}
+variable "activity_log_alerts" {
+  description = "Map of acivity log alerts"
+  type = map(object({
+    scopes      = list(string)
+    description = string
+    criteria    = string
+  }))
+  default = null
 }
