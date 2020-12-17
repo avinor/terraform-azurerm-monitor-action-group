@@ -42,3 +42,22 @@ resource "azurerm_monitor_action_group" "main" {
     }
   }
 }
+
+resource "azurerm_monitor_activity_log_alert" "main" {
+  for_each = var.activity_log_alerts
+
+  tags = var.tags
+
+  name                = each.key
+  resource_group_name = azurerm_resource_group.main.name
+  scopes              = each.value.scopes
+  description         = each.value.description
+
+  criteria {
+    category = each.value.criteria_category
+  }
+
+  action {
+    action_group_id = azurerm_monitor_action_group.main.id
+  }
+}

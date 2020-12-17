@@ -32,4 +32,12 @@ module "simple" {
       use_common_alert_schema = true
     },
   ]
+
+  activity_log_alerts = {
+    "myname" = {
+      scopes            = ["557184c6-b112-49b6-8e79-230fe3aee4f0"]
+      description       = "My description"
+      criteria_category = "Recommendation"
+    },
+  }
 }
